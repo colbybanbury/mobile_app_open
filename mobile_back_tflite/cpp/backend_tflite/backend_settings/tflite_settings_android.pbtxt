@@ -28,6 +28,13 @@ benchmark_setting {
     model_path: "https://github.com/mlcommons/mobile_models/raw/main/v0_7/tflite/mobilenet_edgetpu_224_1.0_float.tflite"
     model_checksum: "0da3fa6adc8bbaaeb0b5647e2d46c8a4"
   }
+  delegate_choice: {
+    delegate_name: "CPU"
+    accelerator_name: "cpu"
+    accelerator_desc: "CPU"
+    model_path: ""
+    model_checksum: ""
+  }
   delegate_selected: "NNAPI"
 }
 
@@ -41,6 +48,20 @@ benchmark_setting {
     model_path: "https://github.com/mlcommons/mobile_models/raw/main/v0_7/tflite/mobilenet_edgetpu_224_1.0_uint8.tflite"
     model_checksum: "008dfcb1c1962fedbeef1b998d4c84f2"
     batch_size: 2
+  }
+  delegate_choice: {
+    delegate_name: "GPU"
+    accelerator_name: "gpu"
+    accelerator_desc: "GPU"
+    model_path: "https://github.com/mlcommons/mobile_models/raw/main/v0_7/tflite/mobilenet_edgetpu_224_1.0_float.tflite"
+    model_checksum: "0da3fa6adc8bbaaeb0b5647e2d46c8a4"
+  }
+  delegate_choice: {
+    delegate_name: "CPU"
+    accelerator_name: "cpu"
+    accelerator_desc: "CPU"
+    model_path: ""
+    model_checksum: ""
   }
   delegate_selected: "NNAPI"
 }
@@ -62,6 +83,13 @@ benchmark_setting {
     model_path: "https://github.com/mlcommons/mobile_models/raw/main/v1_0/tflite/mobiledet.tflite"
     model_checksum: "566ceb72a4c7c8926fe4ac8eededb5bf"
   }
+   delegate_choice: {
+    delegate_name: "CPU"
+    accelerator_name: "cpu"
+    accelerator_desc: "CPU"
+    model_path: ""
+    model_checksum: ""
+  }
   delegate_selected: "NNAPI"
 }
 
@@ -81,6 +109,13 @@ benchmark_setting {
     accelerator_desc: "GPU"
     model_path: "https://github.com/mlcommons/mobile_models/raw/main/v0_7/tflite/mobilebert_float_384_gpu.tflite"
     model_checksum: "36a953d07a8c6f2d3e05b22e87cec95b"
+  }
+   delegate_choice: {
+    delegate_name: "CPU"
+    accelerator_name: "cpu"
+    accelerator_desc: "CPU"
+    model_path: ""
+    model_checksum: ""
   }
   delegate_selected: "GPU"
 }
@@ -102,6 +137,13 @@ benchmark_setting {
     model_path: "https://github.com/mlcommons/mobile_open/raw/main/vision/mosaic/models_and_checkpoints/R4/mobile_segmenter_r4_argmax_f32.tflite"
     model_checksum: "b3a5d3c2e5756431a471ed5211c344a9"
   }
+   delegate_choice: {
+    delegate_name: "CPU"
+    accelerator_name: "cpu"
+    accelerator_desc: "CPU"
+    model_path: ""
+    model_checksum: ""
+  }
   delegate_selected: "NNAPI"
 }
 
@@ -121,6 +163,13 @@ benchmark_setting {
     accelerator_desc: "GPU"
     model_path: "https://github.com/mlcommons/mobile_models/raw/main/v3_0/tflite/edsr_f32b5_fp32.tflite"
     model_checksum: "672240427c1f3dc33baf2facacd9631f"
+  }
+   delegate_choice: {
+    delegate_name: "CPU"
+    accelerator_name: "cpu"
+    accelerator_desc: "CPU"
+    model_path: ""
+    model_checksum: ""
   }
   delegate_selected: "NNAPI"
 }

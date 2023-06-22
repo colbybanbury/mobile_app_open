@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:provider/provider.dart';
 
 import 'package:mlperfbench/benchmark/benchmark.dart';
@@ -61,6 +62,7 @@ class _ConfigScreen extends State<ConfigScreen> {
         children: [
           _description(benchmark),
           _delegateChoice(benchmark),
+          _customModel(benchmark),
         ],
       ),
       trailing: _activeToggle(benchmark),
@@ -124,4 +126,40 @@ class _ConfigScreen extends State<ConfigScreen> {
       ],
     );
   }
+
+  Widget _customModel(Benchmark benchmark) {
+    final index = benchmark.benchmarkSettings.delegateChoice.indexWhere(
+              (e) => e.delegateName == benchmark.benchmarkSettings.delegateSelected);
+
+
+    final pickModel = () async {
+      FilePickerResult? result = await FilePicker.platform.pickFiles(
+        // initialDirectory: ,
+        lockParentWindow: true,
+      );
+      if (result == null) {
+        return;
+      }
+      else{
+      setState(() {
+        benchmark.benchmarkSettings.delegateChoice[
+          index].modelPath = result.files.single.path.toString();
+      });
+      }
+    };
+
+  return Row(
+    children: [
+      Expanded(
+        child: Text(benchmark.benchmarkSettings.delegateChoice[index].modelPath),
+      ),
+      ElevatedButton(
+        onPressed: pickModel,
+        child: const Icon(Icons.folder),
+      )
+    ],
+  );
+  }
+    
+    
 }
