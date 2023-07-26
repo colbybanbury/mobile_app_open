@@ -24,6 +24,11 @@ class _RunIn extends Struct {
   @Int32()
   external int dataset_offset;
 
+  @Int32()
+  external int image_height;
+  @Int32()
+  external int image_width;
+
   external Pointer<Utf8> scenario;
 
   external Pointer<Utf8> mode;
@@ -57,6 +62,8 @@ class _RunIn extends Struct {
     dataset_data_path = rs.dataset_data_path.toNativeUtf8();
     dataset_groundtruth_path = rs.dataset_groundtruth_path.toNativeUtf8();
     dataset_offset = rs.dataset_offset;
+    image_height = rs.image_height;
+    image_width = rs.image_width;
     scenario = rs.scenario.toNativeUtf8();
 
     mode = rs.mode.toNativeUtf8();

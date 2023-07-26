@@ -132,6 +132,7 @@ class BenchmarkRunResult {
   final DatasetInfo dataset;
   final double measuredDuration;
   final int measuredSamples;
+  final double measuredMeanLatency;
   final DateTime startDatetime;
   final BenchmarkLoadgenInfo? loadgenInfo;
 
@@ -142,6 +143,7 @@ class BenchmarkRunResult {
     required this.dataset,
     required this.measuredDuration,
     required this.measuredSamples,
+    required this.measuredMeanLatency,
     required this.startDatetime,
     required this.loadgenInfo,
   });

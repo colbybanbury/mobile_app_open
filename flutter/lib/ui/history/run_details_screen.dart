@@ -64,6 +64,8 @@ class _RunDetailsScreen extends State<RunDetailsScreen> {
           l10n.historyRunDetailsDelegate, res.backendSettings.delegate),
       helper.makeInfo(
           l10n.historyRunDetailsAccelerator, res.backendInfo.acceleratorName),
+      helper.makeInfo(l10n.historyRunDetailsModelPath,
+          res.backendSettings.modelPath),
       if (res.loadgenScenario == LoadgenScenarioEnum.offline)
         helper.makeInfo(l10n.historyRunDetailsBatchSize,
             res.backendSettings.batchSize.toString()),
@@ -80,6 +82,7 @@ class _RunDetailsScreen extends State<RunDetailsScreen> {
           formatDuration(perf.measuredDuration)),
       helper.makeInfo(
           l10n.historyRunDetailsSamples, perf.measuredSamples.toString()),
+      helper.makeInfo(l10n.historyRunDetailsMeanLatency, perf.measuredMeanLatency.toString()),
       helper.makeInfo(
           l10n.historyRunDetailsDatasetType, perf.dataset.type.humanName),
       helper.makeInfo(l10n.historyRunDetailsDatasetName, perf.dataset.name),

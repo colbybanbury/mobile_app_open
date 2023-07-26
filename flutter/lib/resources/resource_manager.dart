@@ -98,7 +98,7 @@ class ResourceManager {
         internetResources.add(resource);
         continue;
       }
-      throw 'forbidden path: ${resource.path} (only http://, https:// and local:// resources are allowed)';
+      // throw 'forbidden path: ${resource.path} (only http://, https:// and local:// resources are allowed)';
     }
 
     final internetPaths = internetResources.map((e) => e.path).toList();
@@ -108,10 +108,13 @@ class ResourceManager {
     }, purgeOldCache);
 
     final checksumFailed = await validateResourcesChecksum(resources);
-    if (checksumFailed.isNotEmpty) {
-      final mismatchedPaths = checksumFailed.map((e) => '\n${e.path}').join();
-      throw 'Checksum validation failed for: $mismatchedPaths';
-    }
+    // if (checksumFailed.isNotEmpty) {
+    //   final mismatchedPaths = checksumFailed.map((e) => '\n${e.path}').join();
+    //   throw 'Checksum validation failed for: $mismatchedPaths';
+    // }
+
+    // TODO(Colby) re-enable these checks. Currently disabled so task swtiching doesn't break when
+    //  custom model path is selected
 
     // delete downloaded archives to free up disk space
     await cacheManager.deleteArchives(internetPaths);

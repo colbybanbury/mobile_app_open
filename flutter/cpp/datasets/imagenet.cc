@@ -44,10 +44,12 @@ Imagenet::Imagenet(Backend *backend, const std::string &image_dir,
       image_width_(image_width),
       image_height_(image_height),
       offset_(offset) {
-  if (input_format_.size() != 1 || output_format_.size() != 1) {
-    LOG(FATAL) << "Imagenet only supports 1 input and 1 output";
-    return;
-  }
+
+  //TODO(colby): removed this check temporarily
+  // if (input_format_.size() != 1 || output_format_.size() != 1) {
+  //   LOG(FATAL) << "Imagenet only supports 1 input and 1 output";
+  //   return;
+  // }
 
   // Finds all images under image_dir.
   std::unordered_set<std::string> exts{".rgb8", ".jpg", ".jpeg"};

@@ -36,6 +36,8 @@ struct dart_ffi_run_benchmark_out* dart_ffi_run_benchmark(
   lin(dataset_data_path);
   lin(dataset_groundtruth_path);
   lin(dataset_offset);
+  lin(image_height);
+  lin(image_width);
   lin(scenario);
   lin(mode);
   lin(batch_size);
@@ -73,7 +75,8 @@ struct dart_ffi_run_benchmark_out* dart_ffi_run_benchmark(
     case ::mlperf::mobile::DatasetConfig::IMAGENET:
       dataset = std::make_unique<::mlperf::mobile::Imagenet>(
           backend.get(), in->dataset_data_path, in->dataset_groundtruth_path,
-          in->dataset_offset, 224, 224 /* width, height */);
+          in->dataset_offset, in->image_width, in->image_height /* width, height */); 
+          // TODO(Colby) add adjustable height to other tasks
       break;
     case ::mlperf::mobile::DatasetConfig::COCO:
       dataset = std::make_unique<::mlperf::mobile::Coco>(

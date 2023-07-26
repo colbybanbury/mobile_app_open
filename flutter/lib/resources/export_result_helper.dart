@@ -55,6 +55,9 @@ class ResultHelper {
     if (info == null) {
       return null;
     }
+    if (info.loadgenInfo == null) {
+      throw 'loadgenInfo must not be null';
+    }
     final result = info.result;
     final dataset = runMode.chooseDataset(benchmark.taskConfig);
 
@@ -71,6 +74,7 @@ class ResultHelper {
       ),
       measuredDuration: result.duration,
       measuredSamples: result.numSamples,
+      measuredMeanLatency: info.loadgenInfo!.meanLatency,
       startDatetime: result.startTime,
       loadgenInfo: _makeLoadgenInfo(info.loadgenInfo),
     );
